@@ -1,0 +1,19 @@
+{
+  "name": "position-sizing",
+  "version": "1.0.0",
+  "description": "Position Sizing Optimizer for arbitrage trading",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "ts-node src/index.ts"
+  },
+  "dependencies": {
+    "decimal.js": "^10.4.3"
+  },
+  "devDependencies": {
+    "@types/node": "^20.8.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2"
+  }
+}

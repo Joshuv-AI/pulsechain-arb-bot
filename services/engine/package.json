@@ -1,0 +1,31 @@
+{
+  "name": "arbitrage-engine",
+  "version": "1.0.0",
+  "description": "pDAI Arbitrage Engine - Opportunity detection and execution",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "ts-node src/index.ts",
+    "test": "hardhat test",
+    "compile": "hardhat compile"
+  },
+  "dependencies": {
+    "ethers": "^6.7.0",
+    "decimal.js": "^10.4.3",
+    "ioredis": "^5.3.2",
+    "pg": "^8.11.3",
+    "dotenv": "^16.3.1",
+    "yaml": "^2.3.4",
+    "ws": "^8.14.2",
+    "axios": "^1.6.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.8.0",
+    "@types/pg": "^8.10.9",
+    "@types/ws": "^8.5.8",
+    "hardhat": "^2.19.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2"
+  }
+}

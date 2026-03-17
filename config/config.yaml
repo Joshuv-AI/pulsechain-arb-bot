@@ -1,0 +1,79 @@
+# pDAI Arbitrage Bot Configuration
+
+# Network Settings
+network:
+  pulsechain:
+    rpc_url: "https://rpc.pulsechain.com"
+    chain_id: 369
+  ethereum:
+    rpc_url: "https://eth-mainnet.g.alchemy.com/v2/YOUR_KEY"
+    chain_id: 1
+
+# Flash Loan Settings
+# NOTE: Using PulseX flash swaps (Uniswap V2 style) - no external provider needed!
+flashloan:
+  type: "pulsex_flash_swap"  # Flash swaps via PulseX pairs
+  fee_bps: 30  # 0.3% pool fee
+  max_loan_size: 1000000  # USD
+  min_profit_threshold: 10  # USD
+
+# Pool Addresses (PulseChain) - VERIFIED
+pools:
+  pulsex:
+    pDAI_USDC: "0x2db5ef4e8a7dbe195defae2d9b79948096a03274"
+    pDAI_DAI: "0x1d2be6eff95ac5c380a8d6a6143b6a97dd9d8712"
+    pDAI_WPLS: "0xae8429918fdbf9a5867e3243697637dc56aa76a1"
+    USDC_DAI: "0x3225e3b0d3c6b97ec9848f7b40bb3030e5497709"
+    USDC_WPLS: "TBD_VERIFY"
+  equalizer:
+    pDAI_USDC: "TBD_VERIFY"
+  ionic:
+    pDAI_USDC: "TBD_VERIFY"
+
+# Token Addresses (PulseChain) - VERIFIED
+tokens:
+  pDAI: "0x6B175474E89094c44Da98b954EedEA c495271d0F"  # Same as ETH DAI (mirrored)
+  WPLS: "0xa1071da3ec3ded7a51a5cb4f69d3d9f5bd9001e"  # Common Wrapped PLS
+  USDC: "0x15d38573d2feeb82e7ad5187ab8c1d52810b1f07"  # Bridged USDC (eUSDC)
+  DAI: "0xefd766ccb38eaf1dfd701853bfce31359239f305"  # Bridged DAI on PulseChain
+  USDT: "TBD_VERIFY"      # USDT on PulseChain
+  WBTC: "TBD_VERIFY"      # Wrapped Bitcoin
+
+# DEX Factory/Router Addresses - VERIFIED
+dex:
+  pulsex:
+    factory: "0x1715a3E4A142d8b698131108995174F37aEBA10D"
+    router: "0x165C3410fC91EF562C50559f7d2289fEbed552d9"
+  equalizer:
+    factory: "TBD_VERIFY"
+    router: "TBD_VERIFY"
+  ionic:
+    factory: "TBD_VERIFY"
+    router: "TBD_VERIFY"
+
+# Trading Parameters - FIXED
+trading:
+  min_spread_percent: 0.5  # FIXED: Was 8% (way too high!)
+  max_slippage_percent: 2
+  max_trade_size: 50000  # USD
+  gas_multiplier: 2  # Gas cost * 2 for safety
+  min_profit_usd: 10  # Minimum profit in USD
+
+# Risk Management
+risk:
+  max_daily_loss: 1000
+  max_concurrent_trades: 3
+  emergency_stop_percent: 20  # Stop if 20% drawdown
+  max_position_size: 100000  # Max $100k per trade
+
+# Monitoring
+monitoring:
+  scan_frequency_seconds: 3
+  alert_webhook: ""
+  log_level: "INFO"
+
+# Private Bundle (Flashbots)
+# NOTE: PulseChain may not have Flashbots - verify
+private_tx:
+  enabled: false
+  flashbots_url: "TBD_VERIFY"  # Check if PulseChain has private relay

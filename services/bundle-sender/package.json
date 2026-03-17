@@ -1,0 +1,20 @@
+{
+  "name": "bundle-sender",
+  "version": "1.0.0",
+  "description": "Private Bundle Sender for MEV protection",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "ts-node src/index.ts"
+  },
+  "dependencies": {
+    "axios": "^1.6.0",
+    "ethers": "^6.7.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.8.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2"
+  }
+}
